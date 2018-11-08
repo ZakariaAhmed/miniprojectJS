@@ -1,12 +1,14 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+var positionSchema = new Schema({
+  longitude: {type: Number, required: true},
+  latitude: {type:Number, required: true}
+})
+
 var locationBlogSchema = new Schema({
   info: {type: String, required: true},
-  pos : {
-    longitude: {type: Number, required: true},
-    latitude : {type: Number, required: true}
-  },
+  pos : [positionSchema],
   //Not Embeding, this represents a one to many relation with reference on the many side
   author: {type: Schema.Types.ObjectId, ref: "User", required: true},
   //Verify whether unique works this way

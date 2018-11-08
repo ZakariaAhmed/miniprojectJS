@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const dbURI = "mongodb://localhost:27017/testUserDatabase";
+const dbURI = require("./settings").DEV_DB_URI;
 
 
 function connect(dbUriString){
